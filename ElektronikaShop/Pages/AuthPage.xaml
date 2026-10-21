@@ -58,7 +58,7 @@
                             <TextBlock Text="Введите код с картинки"
                        Margin="6,10,6,4"/>
 
-                            <Border Background="#FFFFFF"
+                    <Border Background="{DynamicResource SurfaceBrush}"
                     BorderBrush="#275E9F"
                     BorderThickness="1"
                     Margin="6"

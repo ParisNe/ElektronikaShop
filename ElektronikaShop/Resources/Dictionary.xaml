@@ -24,35 +24,29 @@
     </Style>
 
     <Style TargetType="Button">
-        <Setter Property="Height"
-                Value="38"/>
-
-        <Setter Property="MinWidth"
-                Value="110"/>
-
-        <Setter Property="Margin"
-                Value="6"/>
-
-        <Setter Property="Padding"
-                Value="12,5"/>
-
-        <Setter Property="FontFamily"
-                Value="Open Sans"/>
-
-        <Setter Property="FontSize"
-                Value="14"/>
-
         <Setter Property="Background"
-                Value="{DynamicResource PrimaryBrush}"/>
+            Value="{DynamicResource PrimaryBrush}"/>
 
         <Setter Property="Foreground"
-                Value="White"/>
+            Value="White"/>
 
-        <Setter Property="BorderThickness"
-                Value="0"/>
+        <Setter Property="FontFamily"
+            Value="Open Sans"/>
 
-        <Setter Property="Cursor"
-                Value="Hand"/>
+        <Setter Property="FontSize"
+            Value="14"/>
+
+        <Setter Property="Height"
+            Value="38"/>
+
+        <Setter Property="MinWidth"
+            Value="110"/>
+
+        <Setter Property="Margin"
+            Value="6"/>
+
+        <Setter Property="Padding"
+            Value="12,5"/>
     </Style>
 
     <Style TargetType="TextBox">
