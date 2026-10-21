@@ -10,16 +10,22 @@ namespace ElektronikaShop.Pages
     {
         private readonly MainWindow _mainWindow;
 
+        private readonly CaptchaService _captchaService =
+    new CaptchaService();
+
+        private int _failedAttempts = 0;
+
         public AuthPage(MainWindow mainWindow)
         {
             InitializeComponent();
 
             _mainWindow = mainWindow;
+
         }
 
         private void LoginButton_Click(
             object sender,
-            RoutedEventArgs e)
+    RoutedEventArgs e)
         {
             string login = LoginTextBox.Text.Trim();
             string password = PasswordBox.Password;
@@ -36,29 +42,63 @@ namespace ElektronikaShop.Pages
                 return;
             }
 
+            if (_failedAttempts >= 3)
+            {
+                bool captchaCorrect =
+                    _captchaService.Check(
+                        CaptchaTextBox.Text);
+
+                if (!captchaCorrect)
+                {
+                    ErrorTextBlock.Text =
+                        "Неверно введена капча.";
+
+                    _captchaService.Generate();
+
+                    CaptchaCodeTextBlock.Text =
+                        _captchaService.CurrentCode;
+
+                    CaptchaTextBox.Clear();
+
+                    return;
+                }
+            }
+
             var user = Core.Context.Users
-    .FirstOrDefault(x =>
-        x.Login == login &&
-        x.IsActive == true);
+                .FirstOrDefault(x =>
+                    x.Login == login &&
+                    x.IsActive == true);
 
             if (user == null ||
                 !PasswordHasher.Verify(
                     password,
                     user.PasswordHash))
             {
+                _failedAttempts++;
+
                 ErrorTextBlock.Text =
                     "Неверный логин или пароль.";
+
+                if (_failedAttempts >= 3)
+                {
+                    CaptchaPanel.Visibility =
+                        Visibility.Visible;
+
+                    _captchaService.Generate();
+
+                    CaptchaCodeTextBlock.Text =
+                        _captchaService.CurrentCode;
+
+                    CaptchaTextBox.Clear();
+                }
 
                 return;
             }
 
-            if (user == null)
-            {
-                ErrorTextBlock.Text =
-                    "Неверный логин или пароль.";
+            _failedAttempts = 0;
 
-                return;
-            }
+            CaptchaPanel.Visibility =
+                Visibility.Collapsed;
 
             ErrorTextBlock.Text = "";
 

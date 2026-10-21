@@ -49,7 +49,33 @@
                              Height="36"
                              Margin="6"
                              ToolTip="Введите пароль"/>
+                
+                <StackPanel x:Name="CaptchaPanel"
+                    Visibility="Collapsed">
 
+                            <TextBlock Text="Введите код с картинки"
+                       Margin="6,10,6,4"/>
+
+                            <Border Background="#FFFFFF"
+                    BorderBrush="#275E9F"
+                    BorderThickness="1"
+                    Margin="6"
+                    Padding="10">
+
+                                <TextBlock x:Name="CaptchaCodeTextBlock"
+                           Text="-----"
+                           FontSize="26"
+                           FontWeight="Bold"
+                           Foreground="#275E9F"
+                           HorizontalAlignment="Center"/>
+                            </Border>
+
+                            <TextBox x:Name="CaptchaTextBox"
+                     Height="36"
+                     Margin="6"
+                     ToolTip="Введите код с картинки"/>
+                 </StackPanel>
+                
                 <TextBlock x:Name="ErrorTextBlock"
                            Foreground="#E34242"
                            TextWrapping="Wrap"
