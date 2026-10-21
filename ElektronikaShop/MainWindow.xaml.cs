@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElektronikaShop.Pages;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -25,6 +26,9 @@ namespace ElektronikaShop
         public MainWindow()
         {
             InitializeComponent();
+
+            MainFrame.Navigate(new AuthPage(this));
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
