@@ -23,6 +23,8 @@ namespace ElektronikaShop
         public MainWindow()
         {
             InitializeComponent();
+
+
         }
     }
 }
