@@ -115,6 +115,32 @@ namespace ElektronikaShop.Pages
         {
             LoadCart();
         }
+
+        private void CheckoutButton_Click(
+    object sender,
+    RoutedEventArgs e)
+        {
+            var cartExists =
+                Core.Context.CartItems.Any(x =>
+                    x.UserId == _userId);
+
+            if (!cartExists)
+            {
+                MessageBox.Show(
+                    "Корзина пуста.",
+                    "Оформление заказа",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+
+                return;
+            }
+
+            _mainWindow.OpenPage(
+                new CheckoutPage(
+                    _mainWindow,
+                    _userId),
+                "Оформление заказа");
+        }
     }
 
     public class CartViewModel

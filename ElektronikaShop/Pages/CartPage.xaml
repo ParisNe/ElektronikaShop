@@ -79,6 +79,12 @@
                     Background="#323B78"
                     Click="RefreshButton_Click"/>
 
+            <Button Content="Оформить заказ"
+                Width="150"
+                Height="38"
+                Background="#0198AF"
+                Click="CheckoutButton_Click"/>  
+
         </StackPanel>
     </Grid>
 </Page>
