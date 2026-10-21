@@ -92,6 +92,12 @@
     <Compile Include="Pages\CatalogPage.xaml.cs">
       <DependentUpon>CatalogPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CategoryManagementPage.xaml.cs">
+      <DependentUpon>CategoryManagementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrderManagementPage.xaml.cs">
+      <DependentUpon>OrderManagementPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ProductManagementPage.xaml.cs">
       <DependentUpon>ProductManagementPage.xaml</DependentUpon>
     </Compile>
@@ -134,6 +140,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\CatalogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CategoryManagementPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OrderManagementPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

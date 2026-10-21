@@ -41,18 +41,20 @@ namespace ElektronikaShop.Pages
 
         private void CategoriesButton_Click(
             object sender,
-            RoutedEventArgs e)
+    RoutedEventArgs e)
         {
-            MessageTextBlock.Text =
-                "Раздел управления категориями будет добавлен далее.";
+            _mainWindow.OpenPage(
+                new CategoryManagementPage(_mainWindow),
+                "Управление категориями");
         }
 
         private void OrdersButton_Click(
             object sender,
-            RoutedEventArgs e)
+    RoutedEventArgs e)
         {
-            MessageTextBlock.Text =
-                "Раздел управления заказами будет добавлен далее.";
+            _mainWindow.OpenPage(
+                new OrderManagementPage(_mainWindow),
+                "Управление заказами");
         }
 
         private void UsersButton_Click(
