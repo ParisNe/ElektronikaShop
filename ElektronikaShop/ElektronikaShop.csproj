@@ -68,36 +68,6 @@
     <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.3, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.3\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="PdfSharp-wpf, Version=6.5.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp-WPF.6.5.0\lib\net462\PdfSharp-wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="PdfSharp.BarCodes-wpf, Version=6.5.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp-WPF.6.5.0\lib\net462\PdfSharp.BarCodes-wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="PdfSharp.Charting-wpf, Version=6.5.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp-WPF.6.5.0\lib\net462\PdfSharp.Charting-wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="PdfSharp.Cryptography, Version=6.5.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp-WPF.6.5.0\lib\net462\PdfSharp.Cryptography.dll</HintPath>
-    </Reference>
-    <Reference Include="PdfSharp.License, Version=7.0.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp-WPF.6.5.0\lib\net462\PdfSharp.License.dll</HintPath>
-    </Reference>
-    <Reference Include="PdfSharp.Quality-wpf, Version=6.5.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp-WPF.6.5.0\lib\net462\PdfSharp.Quality-wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="PdfSharp.Shared, Version=6.5.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp-WPF.6.5.0\lib\net462\PdfSharp.Shared.dll</HintPath>
-    </Reference>
-    <Reference Include="PdfSharp.Snippets-wpf, Version=6.5.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp-WPF.6.5.0\lib\net462\PdfSharp.Snippets-wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="PdfSharp.System, Version=6.5.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp-WPF.6.5.0\lib\net462\PdfSharp.System.dll</HintPath>
-    </Reference>
-    <Reference Include="PdfSharp.WPFonts, Version=6.5.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp-WPF.6.5.0\lib\net462\PdfSharp.WPFonts.dll</HintPath>
-    </Reference>
     <Reference Include="RBush, Version=4.0.0.0, Culture=neutral, PublicKeyToken=c77e27b81f4d0187, processorArchitecture=MSIL">
       <HintPath>..\packages\RBush.Signed.4.0.0\lib\net47\RBush.dll</HintPath>
     </Reference>

@@ -8,8 +8,6 @@ using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Microsoft.Win32;
-using PdfSharp.Drawing;
-using PdfSharp.Pdf;
 
 namespace ElektronikaShop.Pages
 {
@@ -184,101 +182,6 @@ namespace ElektronikaShop.Pages
 
             ShowMessage(
                 "Word-отчет успешно сохранен.");
-        }
-
-        private void ExportPdfButton_Click(
-    object sender,
-    RoutedEventArgs e)
-        {
-            var saveDialog = new SaveFileDialog
-            {
-                Filter =
-                    "PDF файл (*.pdf)|*.pdf",
-                FileName =
-                    "Отчет_по_заказам.pdf"
-            };
-
-            if (saveDialog.ShowDialog() != true)
-            {
-                return;
-            }
-
-            var orders =
-                Core.Context.Orders
-                .OrderByDescending(x => x.CreatedAt)
-                .ToList();
-
-            PdfDocument document =
-                new PdfDocument();
-
-            document.Info.Title =
-                "Отчет по заказам";
-
-            PdfPage page =
-                document.AddPage();
-
-            XGraphics graphics =
-                XGraphics.FromPdfPage(page);
-
-            XFont titleFont =
-                new XFont(
-                    "Arial",
-                    18,
-                    XFontStyleEx.Bold);
-
-            XFont textFont =
-                new XFont(
-                    "Arial",
-                    10,
-                    XFontStyleEx.Regular);
-
-            graphics.DrawString(
-                "Отчет по заказам",
-                titleFont,
-                XBrushes.DarkBlue,
-                new XPoint(40, 50));
-
-            graphics.DrawString(
-                "Дата формирования: " +
-                DateTime.Now.ToString(
-                    "dd.MM.yyyy HH:mm"),
-                textFont,
-                XBrushes.Black,
-                new XPoint(40, 75));
-
-            double y = 110;
-
-            foreach (var order in orders)
-            {
-                string orderText =
-                    $"Заказ: {order.OrderNumber}; " +
-                    $"Статус: {order.Status}; " +
-                    $"Сумма: {order.TotalAmount:N2} руб.; " +
-                    $"Дата: {order.CreatedAt:dd.MM.yyyy}";
-
-                graphics.DrawString(
-                    orderText,
-                    textFont,
-                    XBrushes.Black,
-                    new XPoint(40, y));
-
-                y += 25;
-
-                if (y > 760)
-                {
-                    page = document.AddPage();
-
-                    graphics =
-                        XGraphics.FromPdfPage(page);
-
-                    y = 50;
-                }
-            }
-
-            document.Save(saveDialog.FileName);
-
-            ShowMessage(
-                "PDF-отчет успешно сохранен.");
         }
 
         private void ShowMessage(string message)
