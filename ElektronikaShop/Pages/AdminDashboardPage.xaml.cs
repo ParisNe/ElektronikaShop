@@ -68,10 +68,11 @@ namespace ElektronikaShop.Pages
 
         private void StatisticsButton_Click(
             object sender,
-            RoutedEventArgs e)
+    RoutedEventArgs e)
         {
-            MessageTextBlock.Text =
-                "Раздел графиков будет добавлен далее.";
+            _mainWindow.OpenPage(
+                new StatisticsPage(_mainWindow),
+                "Статистика магазина");
         }
 
         private void ReportsButton_Click(
