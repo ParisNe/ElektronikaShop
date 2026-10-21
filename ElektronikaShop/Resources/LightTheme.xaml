@@ -5,16 +5,36 @@
     <SolidColorBrush x:Key="WindowBrush"
                      Color="#FFFFFF"/>
 
+    <SolidColorBrush x:Key="PageBrush"
+                     Color="#FFFFFF"/>
+
     <SolidColorBrush x:Key="SurfaceBrush"
-                     Color="#F3F3F3"/>
+                     Color="#F5F7FA"/>
+
+    <SolidColorBrush x:Key="InputBrush"
+                     Color="#FFFFFF"/>
+
+    <SolidColorBrush x:Key="BorderBrush"
+                     Color="#D9E1EA"/>
 
     <SolidColorBrush x:Key="TextBrush"
                      Color="#193D57"/>
 
+    <SolidColorBrush x:Key="SecondaryTextBrush"
+                     Color="#5F7182"/>
+
     <SolidColorBrush x:Key="PrimaryBrush"
                      Color="#0198AF"/>
+
+    <SolidColorBrush x:Key="PrimaryHoverBrush"
+                     Color="#007F93"/>
 
     <SolidColorBrush x:Key="NavyBrush"
                      Color="#323B78"/>
 
+    <SolidColorBrush x:Key="DangerBrush"
+                     Color="#E34242"/>
+
+    <SolidColorBrush x:Key="TableHeaderBrush"
+                     Color="#E8EEF5"/>
 </ResourceDictionary>

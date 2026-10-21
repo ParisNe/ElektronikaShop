@@ -3,18 +3,38 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="WindowBrush"
-                     Color="#1E1E1E"/>
+                     Color="#171A21"/>
+
+    <SolidColorBrush x:Key="PageBrush"
+                     Color="#20242D"/>
 
     <SolidColorBrush x:Key="SurfaceBrush"
-                     Color="#2D2D30"/>
+                     Color="#2A303B"/>
+
+    <SolidColorBrush x:Key="InputBrush"
+                     Color="#343B48"/>
+
+    <SolidColorBrush x:Key="BorderBrush"
+                     Color="#4A5565"/>
 
     <SolidColorBrush x:Key="TextBrush"
-                     Color="#FFFFFF"/>
+                     Color="#F4F7FB"/>
+
+    <SolidColorBrush x:Key="SecondaryTextBrush"
+                     Color="#C0CAD6"/>
 
     <SolidColorBrush x:Key="PrimaryBrush"
-                     Color="#4DC4CC"/>
+                     Color="#27B8C7"/>
+
+    <SolidColorBrush x:Key="PrimaryHoverBrush"
+                     Color="#49D3DD"/>
 
     <SolidColorBrush x:Key="NavyBrush"
-                     Color="#202A5A"/>
+                     Color="#252D63"/>
 
+    <SolidColorBrush x:Key="DangerBrush"
+                     Color="#F06A6A"/>
+
+    <SolidColorBrush x:Key="TableHeaderBrush"
+                     Color="#374252"/>
 </ResourceDictionary>

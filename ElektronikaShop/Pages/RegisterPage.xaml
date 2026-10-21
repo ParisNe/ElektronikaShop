@@ -6,9 +6,10 @@
       xmlns:local="clr-namespace:ElektronikaShop.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      Background="{DynamicResource PageBrush}"
       Title="Регистрация">
 
-    <Grid Background="#FFFFFF">
+    <Grid Background="{DynamicResource PageBrush}">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -18,7 +19,7 @@
 
         <Border Grid.Column="1"
                 Padding="25"
-                Background="#F3F3F3"
+                Background="{DynamicResource SurfaceBrush}"
                 CornerRadius="12"
                 VerticalAlignment="Center">
 
@@ -33,6 +34,7 @@
 
                 <TextBlock Text="Логин"/>
                 <TextBox x:Name="LoginTextBox"
+                         Foreground="{DynamicResource TextBrush}"
                          ToolTip="Введите логин"/>
 
                 <TextBlock Text="Пароль"/>

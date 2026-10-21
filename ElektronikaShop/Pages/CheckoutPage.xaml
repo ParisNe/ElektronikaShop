@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Оформление заказа">
 
-    <Grid Margin="30">
+    <Grid Background="{DynamicResource PageBrush}" Margin="30">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

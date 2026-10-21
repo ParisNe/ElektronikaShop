@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Каталог товаров">
 
-    <Grid Margin="20">
+    <Grid Background="{DynamicResource PageBrush}" Margin="20">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
