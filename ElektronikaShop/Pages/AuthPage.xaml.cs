@@ -113,11 +113,11 @@ namespace ElektronikaShop.Pages
 
             if (user.Role == "Администратор")
             {
-                MessageBox.Show(
-                    "Вы вошли как администратор.",
-                    "Авторизация",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information);
+                _mainWindow.OpenPage(
+                    new AdminDashboardPage(_mainWindow),
+                    "Панель администратора");
+
+                return;
             }
             else
             {

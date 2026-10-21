@@ -32,10 +32,11 @@ namespace ElektronikaShop.Pages
 
         private void ProductsButton_Click(
             object sender,
-            RoutedEventArgs e)
+    RoutedEventArgs e)
         {
-            MessageTextBlock.Text =
-                "Раздел управления товарами будет добавлен далее.";
+            _mainWindow.OpenPage(
+                new ProductManagementPage(_mainWindow),
+                "Управление товарами");
         }
 
         private void CategoriesButton_Click(
