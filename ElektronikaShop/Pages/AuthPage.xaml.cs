@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using ElektronikaShop.Services;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using ElektronikaShop.Services;
 
 namespace ElektronikaShop.Pages
 {
@@ -35,10 +37,20 @@ namespace ElektronikaShop.Pages
             }
 
             var user = Core.Context.Users
-                .FirstOrDefault(x =>
-                    x.Login == login &&
-                    x.PasswordHash == password &&
-                    x.IsActive == true);
+    .FirstOrDefault(x =>
+        x.Login == login &&
+        x.IsActive == true);
+
+            if (user == null ||
+                !PasswordHasher.Verify(
+                    password,
+                    user.PasswordHash))
+            {
+                ErrorTextBlock.Text =
+                    "Неверный логин или пароль.";
+
+                return;
+            }
 
             if (user == null)
             {

@@ -9,10 +9,70 @@
       Title="Регистрация">
 
     <Grid Background="#FFFFFF">
-        <TextBlock Text="Страница регистрации"
-                   FontSize="30"
-                   Foreground="#323B78"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="480"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="1"
+                Padding="25"
+                Background="#F3F3F3"
+                CornerRadius="12"
+                VerticalAlignment="Center">
+
+            <StackPanel>
+
+                <TextBlock Text="Регистрация"
+                           FontSize="30"
+                           FontWeight="Bold"
+                           Foreground="#323B78"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,20"/>
+
+                <TextBlock Text="Логин"/>
+                <TextBox x:Name="LoginTextBox"
+                         ToolTip="Введите логин"/>
+
+                <TextBlock Text="Пароль"/>
+                <PasswordBox x:Name="PasswordBox"
+                             ToolTip="Минимум 8 символов"/>
+
+                <TextBlock Text="Повторите пароль"/>
+                <PasswordBox x:Name="RepeatPasswordBox"/>
+
+                <TextBlock Text="ФИО"/>
+                <TextBox x:Name="FioTextBox"
+                         ToolTip="Введите фамилию, имя и отчество"/>
+
+                <TextBlock Text="Email"/>
+                <TextBox x:Name="EmailTextBox"
+                         ToolTip="example@mail.ru"/>
+
+                <TextBlock Text="Телефон"/>
+                <TextBox x:Name="PhoneTextBox"
+                         ToolTip="+7 900 000-00-00"/>
+
+                <TextBlock Text="Адрес доставки"/>
+                <TextBox x:Name="AddressTextBox"
+                         ToolTip="Введите адрес доставки"/>
+
+                <TextBlock x:Name="MessageTextBlock"
+                           Foreground="#E34242"
+                           TextWrapping="Wrap"
+                           Margin="6"/>
+
+                <Button Content="Зарегистрироваться"
+                        Height="40"
+                        Click="RegisterButton_Click"/>
+
+                <Button Content="Вернуться к авторизации"
+                        Height="40"
+                        Background="#323B78"
+                        Click="BackButton_Click"/>
+
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>
