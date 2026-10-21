@@ -5,9 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElektronikaShop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-                БЮ
+        Title="ElektronikaShop"
+        Width="1200"
+        Height="750"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing">
 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0"
+                   Background="#323B78">
+
+            <Button x:Name="BackButton"
+                    Content="Назад"
+                    Width="100"
+                    Height="35"
+                    Margin="10"
+                    HorizontalAlignment="Left"
+                    Click="BackButton_Click"
+                    Visibility="Collapsed"/>
+
+            <TextBlock Text="ElektronikaShop"
+                       Foreground="White"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"
+                       Margin="20,0,0,0"/>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+
+                <Button Content="Сменить тему"
+                        Width="130"
+                        Height="35"
+                        Margin="5"
+                        Click="ThemeButton_Click"/>
+
+                <Button Content="Выйти"
+                        Width="100"
+                        Height="35"
+                        Margin="5"
+                        Click="ExitButton_Click"/>
+            </StackPanel>
+        </DockPanel>
+
+        <Frame x:Name="MainFrame"
+               Grid.Row="1"
+               NavigationUIVisibility="Hidden"/>
+
+        <DockPanel Grid.Row="2"
+                   Background="#F3F3F3">
+
+            <TextBlock x:Name="PageTitle"
+                       Text="Авторизация"
+                       VerticalAlignment="Center"
+                       Margin="15,0"/>
+
+            <TextBlock x:Name="DateTimeNow"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,0,15,0"/>
+        </DockPanel>
     </Grid>
 </Window>
