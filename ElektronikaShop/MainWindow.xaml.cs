@@ -23,6 +23,7 @@ namespace ElektronikaShop
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool _isDarkTheme = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -64,11 +65,42 @@ namespace ElektronikaShop
 
         private void ThemeButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(
-                "Смена темы будет подключена на следующем этапе.",
-                "Информация",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information);
+{                _isDarkTheme = !_isDarkTheme;
+
+                string themeUri;
+
+                if (_isDarkTheme)
+                {
+                    themeUri =
+                        "Resources/DarkTheme.xaml";
+                }
+                else
+                {
+                    themeUri =
+                        "Resources/LightTheme.xaml";
+                }
+
+                var newTheme =
+                    new ResourceDictionary
+                    {
+                        Source = new Uri(
+                            themeUri,
+                            UriKind.Relative)
+                    };
+
+                var dictionaries =
+                    Application.Current.Resources
+                    .MergedDictionaries;
+
+                if (dictionaries.Count > 1)
+                {
+                    dictionaries[1] = newTheme;
+                }
+                else
+                {
+                    dictionaries.Add(newTheme);
+                }
+            }
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

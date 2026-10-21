@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ElektronikaShop"
         mc:Ignorable="d"
         Title="ElektronikaShop"
+        Background="{DynamicResource WindowBrush}"
         Width="1200"
         Height="750"
         WindowStartupLocation="CenterScreen"
@@ -20,7 +21,7 @@
         </Grid.RowDefinitions>
 
         <DockPanel Grid.Row="0"
-                   Background="#323B78">
+                   Background="{DynamicResource NavyBrush}">
 
             <Button x:Name="BackButton"
                     Content="Назад"
@@ -41,7 +42,7 @@
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Right">
 
-                <Button Content="Сменить тему"
+                <Button Content="Светлая / темная тема"
                         Width="130"
                         Height="35"
                         Margin="5"
@@ -60,7 +61,7 @@
                NavigationUIVisibility="Hidden"/>
 
         <DockPanel Grid.Row="2"
-                   Background="#F3F3F3">
+                   Background="{DynamicResource SurfaceBrush}">
 
             <TextBlock x:Name="PageTitle"
                        Text="Авторизация"
