@@ -23,57 +23,95 @@
                    Foreground="#323B78"
                    Margin="10"/>
 
-        <StackPanel Grid.Row="1"
-                    Orientation="Horizontal">
+        <WrapPanel Grid.Row="1"
+           Orientation="Horizontal"
+           Margin="6"
+           HorizontalAlignment="Left">
 
-            <TextBox x:Name="SearchTextBox"
-                     Width="280"
-                     Height="36"
-                     Margin="6"
-                     ToolTip="Введите название или бренд"/>
+            <StackPanel Margin="4">
 
-            <ComboBox x:Name="CategoryComboBox"
-                      Width="220"
-                      Height="36"
-                      Margin="6"
-                      DisplayMemberPath="Name"
-                      ToolTip="Выберите категорию"/>
+                <TextBlock Text="Поиск"
+                   FontWeight="Bold"
+                   Margin="2"/>
 
-            <ComboBox x:Name="SortComboBox"
-                      Width="180"
-                      Height="36"
-                      Margin="6"
-                      SelectedIndex="0">
+                <TextBox x:Name="SearchTextBox"
+                 Width="230"
+                 Height="36"
+                 ToolTip="Введите название или бренд"/>
+            </StackPanel>
 
-                <ComboBoxItem Content="Без сортировки"/>
-                <ComboBoxItem Content="Цена по возрастанию"/>
-                <ComboBoxItem Content="Цена по убыванию"/>
-                <ComboBoxItem Content="Название от А до Я"/>
-            </ComboBox>
+            <StackPanel Margin="4">
 
-            <Button Content="Найти"
-                    Width="110"
-                    Height="36"
-                    Click="SearchButton_Click"/>
+                <TextBlock Text="Категория"
+                   FontWeight="Bold"
+                   Margin="2"/>
 
-            <Button Content="Сбросить"
-                    Width="110"
-                    Height="36"
-                    Background="#323B78"
-                    Click="ResetButton_Click"/>
-            
-            <Button Content="Сменить пароль"
-                Width="140"
+                <ComboBox x:Name="CategoryComboBox"
+                  Width="190"
+                  Height="36"
+                  DisplayMemberPath="Name"
+                  ToolTip="Выберите категорию"/>
+            </StackPanel>
+
+            <StackPanel Margin="4">
+
+                <TextBlock Text="Сортировка"
+                   FontWeight="Bold"
+                   Margin="2"/>
+
+                <ComboBox x:Name="SortComboBox"
+                  Width="190"
+                  Height="36"
+                  SelectedIndex="0">
+
+                    <ComboBoxItem Content="Без сортировки"/>
+                    <ComboBoxItem Content="Цена по возрастанию"/>
+                    <ComboBoxItem Content="Цена по убыванию"/>
+                    <ComboBoxItem Content="Название от А до Я"/>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                VerticalAlignment="Bottom"
+                Margin="4">
+
+                <Button Content="Найти"
+                Width="100"
                 Height="36"
-                Background="#275E9F"
-                Click="ChangePasswordButton_Click"/>
-            
-            <Button Content="Мои заказы"
+                Click="SearchButton_Click"/>
+
+                <Button Content="Сбросить"
+                Width="105"
+                Height="36"
+                Background="#323B78"
+                Click="ResetButton_Click"/>
+
+                <Button Content="Добавить в корзину"
+                Width="150"
+                Height="36"
+                Background="#0198AF"
+                Click="AddToCartButton_Click"/>
+
+                <Button Content="Корзина"
+                Width="100"
+                Height="36"
+                Background="#323B78"
+                Click="CartButton_Click"/>
+
+                <Button Content="Мои заказы"
                 Width="120"
                 Height="36"
                 Background="#323B78"
                 Click="OrdersButton_Click"/>
-        </StackPanel>
+
+                <Button Content="Сменить пароль"
+                Width="140"
+                Height="36"
+                Background="#275E9F"
+                Click="ChangePasswordButton_Click"/>
+            </StackPanel>
+
+        </WrapPanel>
 
         <DataGrid x:Name="ProductsDataGrid"
                   Grid.Row="2"

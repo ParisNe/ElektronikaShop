@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace ElektronikaShop.Pages
 {
     /// <summary>
@@ -154,6 +155,69 @@ namespace ElektronikaShop.Pages
                     _mainWindow,
                     _userId),
                 "Мои заказы");
+        }
+
+        private void AddToCartButton_Click(
+    object sender,
+    RoutedEventArgs e)
+        {
+            var selectedProduct =
+                ProductsDataGrid.SelectedItem
+                as ProductViewModel;
+
+            if (selectedProduct == null)
+            {
+                MessageBox.Show(
+                    "Сначала выберите товар.",
+                    "Корзина",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+
+                return;
+            }
+
+            var cartItem =
+                Core.Context.CartItems
+                .FirstOrDefault(x =>
+                    x.UserId == _userId &&
+                    x.ProductId ==
+                    selectedProduct.ProductId);
+
+            if (cartItem == null)
+            {
+                var newCartItem = new CartItems
+                {
+                    UserId = _userId,
+                    ProductId =
+                        selectedProduct.ProductId,
+                    Quantity = 1
+                };
+
+                Core.Context.CartItems.Add(newCartItem);
+            }
+            else
+            {
+                cartItem.Quantity++;
+            }
+
+            Core.Context.SaveChanges();
+
+            MessageBox.Show(
+                "Товар добавлен в корзину.",
+                "Корзина",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
+        }
+
+        private void CartButton_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            _mainWindow.OpenPage(
+                new CartPage(
+                    _mainWindow,
+                    _userId),
+                "Корзина");
         }
     }
 
