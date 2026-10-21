@@ -102,6 +102,15 @@ namespace ElektronikaShop.Pages
 
             ErrorTextBlock.Text = "";
 
+            if (user.Role == "Пользователь")
+            {
+                _mainWindow.OpenPage(
+                    new CatalogPage(_mainWindow),
+                    "Каталог товаров");
+
+                return;
+            }
+
             if (user.Role == "Администратор")
             {
                 MessageBox.Show(
