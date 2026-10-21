@@ -21,15 +21,19 @@ namespace ElektronikaShop.Pages
     public partial class CatalogPage : Page
     {
         private readonly MainWindow _mainWindow;
+        private readonly int _userId;
 
         private List<ProductViewModel> _allProducts =
             new List<ProductViewModel>();
 
-        public CatalogPage(MainWindow mainWindow)
+        public CatalogPage(
+    MainWindow mainWindow,
+    int userId)
         {
             InitializeComponent();
 
             _mainWindow = mainWindow;
+            _userId = userId;
 
             LoadCategories();
             LoadProducts();
@@ -129,7 +133,20 @@ namespace ElektronikaShop.Pages
             ProductsDataGrid.ItemsSource =
                 _allProducts;
         }
+
+        private void ChangePasswordButton_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            _mainWindow.OpenPage(
+                new ChangePasswordPage(
+                    _mainWindow,
+                    _userId),
+                "Смена пароля");
+        }
     }
+
+
 
     public class ProductViewModel
     {

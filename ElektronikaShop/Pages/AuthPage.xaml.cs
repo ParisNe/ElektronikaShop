@@ -105,8 +105,10 @@ namespace ElektronikaShop.Pages
             if (user.Role == "Пользователь")
             {
                 _mainWindow.OpenPage(
-                    new CatalogPage(_mainWindow),
-                    "Каталог товаров");
+                new CatalogPage(
+                    _mainWindow,
+                    user.UserId),
+                "Каталог товаров");
 
                 return;
             }

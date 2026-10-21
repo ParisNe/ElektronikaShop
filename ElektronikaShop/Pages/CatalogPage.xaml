@@ -61,6 +61,11 @@
                     Height="36"
                     Background="#323B78"
                     Click="ResetButton_Click"/>
+            <Button Content="Сменить пароль"
+                Width="140"
+                Height="36"
+                Background="#275E9F"
+                Click="ChangePasswordButton_Click"/>
         </StackPanel>
 
         <DataGrid x:Name="ProductsDataGrid"
