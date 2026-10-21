@@ -144,6 +144,17 @@ namespace ElektronikaShop.Pages
                     _userId),
                 "Смена пароля");
         }
+
+        private void OrdersButton_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            _mainWindow.OpenPage(
+                new OrdersPage(
+                    _mainWindow,
+                    _userId),
+                "Мои заказы");
+        }
     }
 
 
