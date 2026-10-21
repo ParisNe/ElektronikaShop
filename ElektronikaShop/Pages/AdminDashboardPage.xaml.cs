@@ -77,10 +77,11 @@ namespace ElektronikaShop.Pages
 
         private void ReportsButton_Click(
             object sender,
-            RoutedEventArgs e)
+    RoutedEventArgs e)
         {
-            MessageTextBlock.Text =
-                "Раздел отчетов будет добавлен далее.";
+            _mainWindow.OpenPage(
+                new ReportsPage(_mainWindow),
+                "Отчеты");
         }
     }
-}
+ }
