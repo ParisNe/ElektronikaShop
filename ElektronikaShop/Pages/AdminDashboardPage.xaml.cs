@@ -59,10 +59,11 @@ namespace ElektronikaShop.Pages
 
         private void UsersButton_Click(
             object sender,
-            RoutedEventArgs e)
+    RoutedEventArgs e)
         {
-            MessageTextBlock.Text =
-                "Раздел управления пользователями будет добавлен далее.";
+            _mainWindow.OpenPage(
+                new UserManagementPage(_mainWindow),
+                "Управление пользователями");
         }
 
         private void StatisticsButton_Click(
