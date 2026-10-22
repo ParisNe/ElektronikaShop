@@ -61,29 +61,6 @@
 - просмотр выручки;
 - экспорт отчетов в Word и Excel.
 
-## Навигация приложения
-
-```mermaid
-flowchart TD
-    A[Запуск приложения] --> B[Авторизация]
-
-    B --> C[Регистрация]
-    C --> B
-
-    B -->|Пользователь| D[Каталог товаров]
-    D --> E[Корзина]
-    E --> F[Оформление заказа]
-    F --> G[История заказов]
-    D --> H[Смена пароля]
-
-    B -->|Администратор| I[Панель администратора]
-    I --> J[Товары]
-    I --> K[Категории]
-    I --> L[Заказы]
-    I --> M[Пользователи]
-    I --> N[Статистика]
-    I --> O[Отчеты]
-```
 
 ## База данных
 
@@ -112,23 +89,6 @@ db
 | `Reviews` | Отзывы о товарах |
 | `AuditLogs` | Журнал действий |
 
-## Схема базы данных
-
-```mermaid
-erDiagram
-    Users ||--o{ Orders : creates
-    Users ||--o{ CartItems : owns
-    Users ||--o{ Reviews : writes
-    Users ||--o{ AuditLogs : creates
-
-    Categories ||--o{ Products : contains
-
-    Orders ||--|{ OrderItems : contains
-
-    Products ||--o{ OrderItems : included
-    Products ||--o{ CartItems : added
-    Products ||--o{ Reviews : receives
-```
 
 В базе данных настроены:
 
