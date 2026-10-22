@@ -5,86 +5,108 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ElektronikaShop.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600"
+      d:DesignWidth="900"
+      Background="{DynamicResource PageBrush}"
       Title="Управление категориями">
 
-    <Grid Background="{DynamicResource PageBrush}" Margin="20">
+    <Grid Margin="20"
+          Background="{DynamicResource PageBrush}">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0"
                    Text="Управление категориями"
                    FontSize="28"
                    FontWeight="Bold"
-                   Foreground="#323B78"
-                   Margin="6,0,6,15"/>
+                   Foreground="{DynamicResource TextBrush}"
+                   Margin="5,0,5,18"/>
 
         <Grid Grid.Row="1"
-              Margin="6">
+              Margin="5,0,5,10">
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="280"/>
-                <ColumnDefinition Width="400"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0"
-                        Margin="4">
+                        Margin="5">
 
                 <TextBlock Text="Название категории"
-                           FontWeight="Bold"
-                           Margin="2"/>
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource TextBrush}"
+                           Margin="0,0,0,5"/>
 
                 <TextBox x:Name="NameTextBox"
                          Height="36"
+                         MinWidth="150"
                          ToolTip="Например: Смартфоны"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1"
-                        Margin="4">
+                        Margin="5">
 
                 <TextBlock Text="Описание категории"
-                           FontWeight="Bold"
-                           Margin="2"/>
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource TextBrush}"
+                           Margin="0,0,0,5"/>
 
                 <TextBox x:Name="DescriptionTextBox"
                          Height="36"
+                         MinWidth="200"
                          ToolTip="Краткое описание категории"/>
-            </StackPanel>
-
-            <StackPanel Grid.Column="2"
-                        Orientation="Horizontal"
-                        VerticalAlignment="Bottom"
-                        Margin="4">
-
-                <Button Content="Добавить"
-                        Width="110"
-                        Height="36"
-                        Click="AddButton_Click"/>
-
-                <Button Content="Удалить"
-                        Width="110"
-                        Height="36"
-                        Background="#E34242"
-                        Click="DeleteButton_Click"/>
-
-                <Button Content="Обновить"
-                        Width="110"
-                        Height="36"
-                        Background="#323B78"
-                        Click="RefreshButton_Click"/>
             </StackPanel>
         </Grid>
 
+        <ScrollViewer Grid.Row="2"
+                      HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Margin="5,0,5,10">
+
+            <WrapPanel HorizontalAlignment="Center">
+
+                <Button Content="Добавить"
+                        MinWidth="120"
+                        Height="36"
+                        Margin="5"
+                        Click="AddButton_Click"/>
+
+                <Button Content="Удалить"
+                        MinWidth="120"
+                        Height="36"
+                        Margin="5"
+                        Background="{DynamicResource DangerBrush}"
+                        Click="DeleteButton_Click"/>
+
+                <Button Content="Обновить"
+                        MinWidth="120"
+                        Height="36"
+                        Margin="5"
+                        Background="{DynamicResource NavyBrush}"
+                        Click="RefreshButton_Click"/>
+
+            </WrapPanel>
+        </ScrollViewer>
+
         <DataGrid x:Name="CategoriesDataGrid"
-                  Grid.Row="2"
-                  Margin="6,15,6,6"
+                  Grid.Row="3"
+                  Margin="5"
                   AutoGenerateColumns="False"
-                  IsReadOnly="True">
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  SelectionChanged="CategoriesDataGrid_SelectionChanged"
+                  Background="{DynamicResource SurfaceBrush}"
+                  Foreground="{DynamicResource TextBrush}"
+                  BorderBrush="{DynamicResource BorderBrush}"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch">
 
             <DataGrid.Columns>
 
@@ -94,20 +116,20 @@
 
                 <DataGridTextColumn Header="Название"
                                     Binding="{Binding Name}"
-                                    Width="250"/>
+                                    Width="1.4*"/>
 
                 <DataGridTextColumn Header="Описание"
                                     Binding="{Binding Description}"
-                                    Width="*"/>
+                                    Width="3*"/>
 
             </DataGrid.Columns>
         </DataGrid>
 
         <TextBlock x:Name="MessageTextBlock"
-                   Grid.Row="2"
-                   VerticalAlignment="Bottom"
-                   Margin="10"
-                   Foreground="#0198AF"
-                   FontSize="15"/>
+                   Grid.Row="4"
+                   Margin="5,8,5,0"
+                   FontSize="14"
+                   Foreground="{DynamicResource PrimaryBrush}"
+                   TextWrapping="Wrap"/>
     </Grid>
 </Page>
