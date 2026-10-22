@@ -33,6 +33,16 @@ namespace ElektronikaShop.Pages
             LoadProducts();
         }
 
+        private void ClearProductFields()
+        {
+            NameTextBox.Clear();
+            BrandTextBox.Clear();
+            PriceTextBox.Clear();
+            StockTextBox.Clear();
+            CategoryComboBox.SelectedIndex = -1;
+            ProductsDataGrid.SelectedItem = null;
+        }
+
         private void LoadCategories()
         {
             CategoryComboBox.ItemsSource =
@@ -110,6 +120,20 @@ namespace ElektronikaShop.Pages
                 CreatedAt = DateTime.Now
             };
 
+            if (price < 0 || price > 10000000)
+            {
+                MessageBox.Show(
+                    "Цена должна быть от 0 до 10 000 000.");
+                return;
+            }
+
+            if (stock < 0 || stock > 1000000)
+            {
+                MessageBox.Show(
+                    "Количество должно быть от 0 до 1 000 000.");
+                return;
+            }
+
             Core.Context.Products.Add(product);
             Core.Context.SaveChanges();
 
@@ -177,6 +201,95 @@ namespace ElektronikaShop.Pages
         private void ShowMessage(string message)
         {
             MessageTextBlock.Text = message;
+        }
+
+        private void ProductsDataGrid_SelectionChanged(
+    object sender,
+    SelectionChangedEventArgs e)
+        {
+            var product = ProductsDataGrid.SelectedItem as Products;
+
+            if (product == null)
+                return;
+
+            NameTextBox.Text = product.Name;
+            BrandTextBox.Text = product.Brand;
+            PriceTextBox.Text = product.Price.ToString();
+            StockTextBox.Text = product.StockQuantity.ToString();
+
+            CategoryComboBox.SelectedValue = product.CategoryId;
+        }
+        private void EditProductButton_Click(
+    object sender,
+    RoutedEventArgs e)
+        {
+            var product = ProductsDataGrid.SelectedItem as Products;
+
+            if (product == null)
+            {
+                MessageBox.Show("Сначала выберите товар.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
+            {
+                MessageBox.Show("Введите название товара.");
+                return;
+            }
+
+            if (!decimal.TryParse(
+                    PriceTextBox.Text,
+                    out decimal price))
+            {
+                MessageBox.Show("Введите корректную цену.");
+                return;
+            }
+
+            if (!int.TryParse(
+                    StockTextBox.Text,
+                    out int stock))
+            {
+                MessageBox.Show("Введите корректное количество.");
+                return;
+            }
+
+            if (price < 0 || price > 10000000)
+            {
+                MessageBox.Show(
+                    "Цена должна быть от 0 до 10 000 000.");
+                return;
+            }
+
+            if (stock < 0 || stock > 1000000)
+            {
+                MessageBox.Show(
+                    "Количество должно быть от 0 до 1 000 000.");
+                return;
+            }
+
+            if (CategoryComboBox.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите категорию.");
+                return;
+            }
+
+            product.Name = NameTextBox.Text.Trim();
+            product.Price = price;
+            product.StockQuantity = stock;
+            product.CategoryId =
+                (int)CategoryComboBox.SelectedValue;
+
+            if (product.GetType().GetProperty("Brand") != null)
+            {
+                product.Brand = BrandTextBox.Text.Trim();
+            }
+
+            Core.Context.SaveChanges();
+
+            MessageBox.Show("Товар успешно изменён.");
+
+            LoadProducts();
+            ClearProductFields();
         }
     }
 }
